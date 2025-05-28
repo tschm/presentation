@@ -1,37 +1,46 @@
+# Pre-commit configuration file for Git hooks
+# This file defines automated checks that run before each commit
+
 repos:
+  # Standard pre-commit hooks for basic file hygiene
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+      - id: check-yaml  # Validates YAML syntax
+      - id: end-of-file-fixer  # Ensures files end with a newline
+      - id: trailing-whitespace  # Trims trailing whitespace from all lines
 
+  # Python linting and formatting with Ruff
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: 'v0.11.11'
     hooks:
-      - id: ruff
-        args: [ --fix, --exit-non-zero-on-fix ]
+      - id: ruff  # Python linter for code quality
+        args: [ --fix, --exit-non-zero-on-fix ]  # Automatically fix issues when possible
 
       # Run the formatter
-      - id: ruff-format
+      - id: ruff-format  # Python code formatter for consistent style
 
+  # Markdown linting to ensure consistent style
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.45.0
     hooks:
-      - id: markdownlint
+      - id: markdownlint  # Checks Markdown files for style issues
 
+  # Automatically upgrade Python syntax
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.20.0
     hooks:
-      - id: pyupgrade
+      - id: pyupgrade  # Upgrades Python code to use newer language features
 
+  # Spell checking for code and documentation
   - repo: https://github.com/crate-ci/typos
     rev: v1.32.0
     hooks:
-      - id: typos
+      - id: typos  # Checks for spelling mistakes
 
+  # JSON schema validation
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.33.0
     hooks:
-      - id: check-renovate
-        args: [ "--verbose" ]
+      - id: check-renovate  # Validates Renovate configuration
+        args: [ "--verbose" ]  # Provides detailed output
