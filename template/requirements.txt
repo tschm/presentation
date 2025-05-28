@@ -1,6 +1,6 @@
 # Interactive notebook environment for data science and application development
 # Used to create the Secret Santa application interface
-marimo==0.13.13
+marimo==0.13.14
 pre-commit==4.2.0
 numpy==2.2.6
 matplotlib==3.10.3
