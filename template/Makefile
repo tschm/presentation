@@ -1,6 +1,6 @@
-# Makefile for the server project template
+# Makefile for the presentation project template
 # This Makefile provides commands for setting up the development environment,
-# running tests, starting interactive notebooks, building Docker images, and maintaining code quality.
+# running tests, starting interactive notebooks and maintaining code quality.
 
 # Set the default target to 'help' when running make without arguments
 .DEFAULT_GOAL := help
