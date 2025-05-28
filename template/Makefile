@@ -42,7 +42,6 @@ help:  ## Display this help screen
 # Mark 'marimo' as a phony target
 .PHONY: marimo
 marimo:
-	@uv pip install --no-cache-dir marimo  # Install Marimo interactive notebook tool
 	@uv run marimo edit marimo/notebook.py  # Start Marimo in edit mode, opening the book/marimo directory
 
 # Run Marimo in presentation mode
