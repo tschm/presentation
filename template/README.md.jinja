@@ -1,13 +1,115 @@
-# 📄 [{{ project_name }}]({{ page }}/book)
+# 📄 [{{ project_name }}]({{ page }})
 
 [![Created with qCradle](https://img.shields.io/badge/Created%20with-qCradle-blue?style=flat-square)](https://github.com/tschm/presentation)
 
-## 📝 Abstract
+## 📋 Project Description
 
-Include an abstract here...
+This project is an interactive slide presentation built with
+[marimo](https://github.com/marimo-team/marimo),
+an open-source Python notebook that's reproducible,
+shareable as an app, and executable as a script.
+The presentation demonstrates various features of marimo, including:
 
-## 🚀 Getting started
+- Interactive UI elements (sliders)
+- Dynamic mathematical formulas
+- Responsive data visualizations
+- Interactive charts with data selection capabilities
 
-### **📋 Update the README.md file**
+The presentation serves as both a demo of marimo's capabilities and a
+template for creating your own interactive presentations.
 
-Insert your abstract, add graphs, etc.
+## 🔧 Prerequisites
+
+- Python 3.12 or higher
+- Git (for cloning the repository)
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone {{ repository }}
+   cd {{ project_name }}
+   ```
+
+2. Set up the environment and install dependencies:
+
+   ```bash
+   make install
+   ```
+
+   This will:
+
+   - Create a Python 3.12 virtual environment using uv (which
+     will be installed on the fly)
+   - Install all required dependencies from requirements.txt
+
+### Running the Presentation
+
+To run the presentation in presentation mode:
+
+```bash
+make presentation
+```
+
+This will start the marimo notebook in presentation mode,
+displaying the interactive slides in your default web browser.
+
+### Modifying the Notebook
+
+To edit the presentation content:
+
+```bash
+make marimo
+```
+
+This will open the marimo notebook in edit mode,
+allowing you to modify the content, add new slides, or change the interactive elements.
+
+## 📦 Publishing the Presentation
+
+### Creating a Release
+
+1. Go to GitHub Actions and run the "Bump version and publish" workflow manually.
+2. This action will:
+   - Create a 0.0.1 tag
+   - Populate the gh-pages branch with the built presentation
+
+### Activating GitHub Pages
+
+1. In your repository settings, go to the Pages section
+2. Under "Build and deployment", select "Deploy from a branch"
+3. Select the gh-pages branch and the /root folder
+4. Save your choice
+
+### Verifying the Deployment
+
+The headline of this README file contains a
+hyperlink to the published presentation. Click it to verify that the
+notebook is working correctly on GitHub Pages.
+
+## 🧹 Maintenance
+
+To clean up caches and build artifacts:
+
+```bash
+make clean
+```
+
+To run code formatting and linting:
+
+```bash
+make fmt
+```
+
+## 📚 Additional Resources
+
+- [marimo Documentation](https://docs.marimo.io/)
+- [marimo GitHub Repository](https://github.com/marimo-team/marimo)
+- [qCradle Project Template](https://github.com/tschm/presentation)
+
+## 📄 License
+
+This project is licensed under the terms included in the [LICENSE](LICENSE) file.

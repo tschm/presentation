@@ -41,11 +41,11 @@ help:  ## Display this help screen
 
 # Mark 'marimo' as a phony target
 .PHONY: marimo
-marimo: install ## Install Marimo
+marimo:
 	@uv pip install --no-cache-dir marimo  # Install Marimo interactive notebook tool
 	@uv run marimo edit marimo  # Start Marimo in edit mode, opening the book/marimo directory
 
 # Run Marimo in presentation mode
 .PHONY: presentation
-presentation: install    ## Run Marimo presentation
+presentation:    ## Run Marimo presentation
 	@uv run marimo run marimo/notebook.py
