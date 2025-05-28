@@ -1,7 +1,7 @@
 # 📄 presentation --- qCradle template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![CI](https://github.com/tschm/paper/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/paper/actions/workflows/act.yml)
+[![CI](https://github.com/tschm/presentation/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/presentation/actions/workflows/act.yml)
 [![Created for qCradle](https://img.shields.io/badge/Created%20for-qCradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
 
 The template supports the fast creation of repositories of LaTeX documents.
@@ -10,7 +10,7 @@ Out of the box you get
 * ✅ Curated pre-commit-hooks (e.g. for spelling)
 * 🔄 GitHub CI/CD workflows
 * 🛠️ Makefile
-* 📝 Example *.tex and bib file.
+* 📝 Example Marimo notebook *.py
 
 With every push into the repo the document is compiled
 and published on a draft branch.
@@ -33,4 +33,4 @@ make fmt     # Install pre-commit hooks and run them on all files
 
 Thomas Schmelzer - [@tschm](https://github.com/tschm)
 
-🔗 Project Link: <https://github.com/tschm/package>
+🔗 Project Link: <https://github.com/tschm/presentation>
