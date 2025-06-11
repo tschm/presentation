@@ -6,7 +6,7 @@
 #     "matplotlib==3.10.0",
 #     "altair==5.5.0",
 #     "vega-datasets==0.9.0",
-#     "pyarrow"
+#     "pyarrow",
 # ]
 # ///
 import marimo
