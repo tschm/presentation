@@ -32,26 +32,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install the latest version of uv and set the python version
+        uses: astral-sh/setup-uv@v6
         with:
-          python-version: '3.13'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --no-cache-dir -r "requirements.txt"
+          python-version: 3.13
 
       - name: Export notebook to static HTML presentation
         run: |
           mkdir -p dist
-          marimo export html marimo/notebook.py --no-include-code -o dist/notebook.html
+          uvx marimo export html marimo/notebook.py --no-include-code -o dist/notebook.html
 
       - name: Export notebook via wasm
         run: |
           mkdir -p dist/wasm
           # export as readonly, with code locked
-          marimo export html-wasm marimo/notebook.py -o dist/wasm --mode run
+          uvx marimo export html-wasm marimo/notebook.py -o dist/wasm/index.html --mode run
 
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4
@@ -61,14 +56,8 @@ jobs:
           retention-days: 1
 
       - name: Create GitHub release with artifacts
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.2.2
         with:
           tag_name: ${{ needs.tagging.outputs.new_tag }}
           generate_release_notes: true
           files: dist/notebook.html
-
-      - name: GitHub Pages action
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages                # The branch the action should deploy to.
-          folder: dist/wasm               # The folder the action should deploy
