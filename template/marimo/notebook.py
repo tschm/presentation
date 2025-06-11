@@ -1,7 +1,24 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "marimo==0.13.15",
+#     "numpy==2.3.0",
+#     "matplotlib==3.10.0",
+#     "altair==5.5.0",
+#     "vega-datasets==0.9.0",
+#     "pyarrow"
+# ]
+# ///
 import marimo
 
 __generated_with = "0.13.11-dev14"
 app = marimo.App(layout_file="layouts/notebook.slides.json")
+
+with app.setup:
+    import altair as alt
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from vega_datasets import data
 
 
 @app.cell(hide_code=True)
@@ -55,7 +72,7 @@ def _(mo):
 
 
 @app.cell
-def _(exponent, mo, np):
+def _(exponent, mo):
     x = np.linspace(-3, 3, 100)
     y = x**exponent.value
 
@@ -75,18 +92,10 @@ def _(exponent, mo, np):
 
 @app.function
 def make_plot(x, y):
-    import matplotlib.pyplot as plt
-
     plt.plot(x, y)
     plt.ylim(-27, 27)
     plt.xlim(-3, 3)
     return plt.gca()
-
-
-@app.cell
-async def _():
-    df = await make_data()
-    return (df,)
 
 
 @app.cell
@@ -96,11 +105,9 @@ def _(mo):
 
 
 @app.cell
-def _(df, mo):
-    import altair as alt
-
+def _(mo):
     chart = mo.ui.altair_chart(
-        alt.Chart(df)
+        alt.Chart(data.cars())
         .mark_circle(size=60)
         .encode(
             x="Horsepower",
@@ -118,18 +125,18 @@ def _(chart, mo):
     return
 
 
-@app.function
-async def make_data():
-    try:
-        import micropip
-
-        await micropip.install("vega_datasets")
-    finally:
-        ...
-
-    from vega_datasets import data
-
-    return data.cars()
+# @app.function
+# async def make_data():
+#     try:
+#         import micropip
+#
+#         await micropip.install("vega_datasets")
+#     finally:
+#         ...
+#
+#     from vega_datasets import data
+#
+#     return data.cars()
 
 
 @app.cell
@@ -140,8 +147,6 @@ def _(mo):
 
 @app.cell
 def _():
-    import numpy as np
-
     return (np,)
 
 

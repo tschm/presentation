@@ -11,18 +11,11 @@ venv:
 	@uv venv --python '3.12'  # Create a virtual environment with Python 3.12
 
 
-# Mark 'install' as a phony target (not associated with a file)
-.PHONY: install
-install: venv ## Install a virtual environment
-	@uv pip install --upgrade pip  # Ensure pip is up to date
-	@uv pip install --no-cache-dir -r requirements.txt
-
 # Mark 'fmt' as a phony target
 .PHONY: fmt
 fmt: venv ## Run autoformatting and linting
-	@uv pip install --no-cache-dir pre-commit  # Install pre-commit in the virtual environment
-	@uv run pre-commit install  # Install pre-commit hooks in the git repository
-	@uv run pre-commit run --all-files  # Run all pre-commit hooks on all files
+	@uvx run pre-commit install  # Install pre-commit hooks in the git repository
+	@uvx run pre-commit run --all-files  # Run all pre-commit hooks on all files
 
 # Mark 'clean' as a phony target
 .PHONY: clean
@@ -42,9 +35,4 @@ help:  ## Display this help screen
 # Mark 'marimo' as a phony target
 .PHONY: marimo
 marimo:
-	@uv run marimo edit marimo/notebook.py  # Start Marimo in edit mode, opening the book/marimo directory
-
-# Run Marimo in presentation mode
-.PHONY: presentation
-presentation:    ## Run Marimo presentation
-	@uv run marimo run marimo/notebook.py
+	@uvx marimo edit --sandbox marimo/notebook.py  # Start Marimo in edit mode, opening the book/marimo directory
