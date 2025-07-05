@@ -40,7 +40,7 @@ repos:
 
   # JSON schema validation
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.33.0
+    rev: 0.33.2
     hooks:
       - id: check-renovate  # Validates Renovate configuration
         args: [ "--verbose" ]  # Provides detailed output
