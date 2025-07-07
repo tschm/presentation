@@ -4,7 +4,8 @@
 [![CI](https://github.com/tschm/presentation/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/presentation/actions/workflows/act.yml)
 [![Created for qCradle](https://img.shields.io/badge/Created%20for-qCradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
 
-The template supports the fast creation of repositories of LaTeX documents.
+The template supports the fast creation
+of repositories of LaTeX documents.
 Out of the box you get
 
 * ✅ Curated pre-commit-hooks (e.g. for spelling)
