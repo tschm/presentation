@@ -65,7 +65,7 @@ jobs:
     steps:
       - name: Publish book    # specify the path to avoid direct exposure of marimushka
         id: deployment
-        uses: tschm/cradle/actions/book@v0.2.0
+        uses: tschm/cradle/actions/book@v0.2.1
         with:
           title: "My project"
           links: |
